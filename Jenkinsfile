@@ -11,13 +11,13 @@ pipeline{
 			steps{
 				parallel(
 					FrontendBuild:{
-						sh 'pwd && ls'
+						sh 'npm version'
 						sh 'cd frontend'
 						sh 'npm install'
 						sh 'npm run build'
 					},
 					BackendBuild:{
-						sh 'pwd && ls'
+						sudo chown -R 995:993 "/.npm"
 						sh 'cd backend'
 						sh 'npm install'
 						sh 'npm run build'
