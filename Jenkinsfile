@@ -14,16 +14,13 @@ pipeline{
 				sh """
 					cd frontend
 					npm install
-					npm run build
-				"""
-			}
-			steps{
-				sh""" 
-					cd backend
+					npm run build 
+					cd ../backend
 					npm install
 					npm run build
 				"""
 			}
+			
 		}
 		stage('Test'){
 			agent{
