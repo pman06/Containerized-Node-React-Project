@@ -15,9 +15,6 @@ pipeline{
 					cd frontend
 					npm install
 					npm run build 
-					cd ../backend
-					npm install
-					npm run build
 				"""
 			}
 			
@@ -29,22 +26,27 @@ pipeline{
 				}
 			}
 			steps{
-				parallel(
-					FrontendTest:{
-						sh """
-							cd frontend
-							npm build
-							npm run test
-						"""
-					},
-					BackendTest:{
-						sh """
-							cd backend
-							npm build
-							npm run test
-						"""
-					}
-				)
+				sh """
+					cd backend
+					npm install
+					npm run build
+				"""
+				// parallel(
+				// 	FrontendTest:{
+				// 		sh """
+				// 			cd frontend
+				// 			npm build
+				// 			npm run test
+				// 		"""
+				// 	},
+				// 	BackendTest:{
+				// 		sh """
+				// 			cd backend
+				// 			npm build
+				// 			npm run test
+				// 		"""
+				// 	}
+				// )
 			}
 		}
 	}
