@@ -15,7 +15,6 @@ pipeline{
 					FrontendBuild:{
 						sh """
 							cd frontend
-							sh 'ls -a
 							npm install
 							npm run build
 						"""
@@ -23,7 +22,6 @@ pipeline{
 					BackendBuild:{
 						sh""" 
 							cd backend
-							ls -a
 							npm install
 							npm run build
 						"""
