@@ -1,6 +1,8 @@
 pipeline{
 	agent none
-	
+	environment {
+        HOME = '.'
+    }
 	stages{
 		stage('Buld'){
 			agent{
