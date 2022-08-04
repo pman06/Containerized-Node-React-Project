@@ -19,7 +19,6 @@ pipeline{
 						sh 'npm run build'
 					},
 					BackendBuild:{
-						sh 'sudo chown -R 995:993 "/.npm"'
 						sh 'cd backend'
 						sh 'npm install'
 						sh 'npm run build'
