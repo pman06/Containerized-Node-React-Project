@@ -14,13 +14,13 @@ pipeline{
 				parallel(
 					FrontendBuild:{
 						sh 'npm version'
-						cd frontend
+						sh 'cd ./frontend'
 						sh 'ls -a'
 						sh 'npm install'
 						sh 'npm run build'
 					},
 					BackendBuild:{
-						cd backend
+						sh 'cd ./backend'
 						sh 'ls -a'
 						sh 'npm install'
 						sh 'npm run build .'
