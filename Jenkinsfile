@@ -17,12 +17,8 @@ pipeline{
 						sh 'npm run build'
 					},
 					BackendBuild:{
-<<<<<<< HEAD
-						sh 'cd backend'
-=======
 						sh 'pwd && ls'
-						sh 'cd ../backend'
->>>>>>> 2b23bc85d8c24f4c9f8a9b787b0438eaf1b1078c
+						sh 'cd backend'
 						sh 'npm install'
 						sh 'npm run build'
 					}
