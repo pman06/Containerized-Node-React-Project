@@ -15,13 +15,15 @@ pipeline{
 					FrontendBuild:{
 						sh 'npm version'
 						sh 'cd frontend'
+						sh 'ls -a'
 						sh 'npm install'
 						sh 'npm run build'
 					},
 					BackendBuild:{
 						sh 'cd backend'
+						sh 'ls -a'
 						sh 'npm install'
-						sh 'npm run build'
+						sh 'npm run build .'
 					}
 				)
 			}
