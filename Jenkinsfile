@@ -16,7 +16,7 @@ pipeline{
 						sh 'npm run build'
 					},
 					BackendBuild:{
-						sh 'cd ../backend'
+						sh 'cd backend'
 						sh 'npm install'
 						sh 'npm run build'
 					}
