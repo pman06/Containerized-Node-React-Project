@@ -1,11 +1,13 @@
 pipeline{
 	agent none
-
+	environment {
+        HOME = '.'
+    }
 	stages{
 		stage('Buld'){
 			agent{
 				docker{
-					image 'circleci/node:13.8.0'
+					image 'node:13.8.0-stretch-slim'
 				}
 			}
 			steps{
@@ -28,7 +30,7 @@ pipeline{
 		stage('Test'){
 			agent{
 				docker{
-					image 'circleci/node:13.8.0'
+					image 'node:13.8.0-stretch-slim'
 				}
 			}
 			steps{
