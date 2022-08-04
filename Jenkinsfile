@@ -11,22 +11,18 @@ pipeline{
 				}
 			}
 			steps{
-				parallel(
-					FrontendBuild:{
-						sh """
-							cd frontend
-							npm install
-							npm run build
-						"""
-					},
-					BackendBuild:{
-						sh""" 
-							cd backend
-							npm install
-							npm run build
-						"""
-					}
-				)
+				sh """
+					cd frontend
+					npm install
+					npm run build
+				"""
+			}
+			steps{
+				sh""" 
+					cd backend
+					npm install
+					npm run build
+				"""
 			}
 		}
 		stage('Test'){
