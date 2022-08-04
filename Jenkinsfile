@@ -13,17 +13,20 @@ pipeline{
 			steps{
 				parallel(
 					FrontendBuild:{
-						sh 'npm version'
-						sh 'cd ./frontend'
-						sh 'ls -a'
-						sh 'npm install'
-						sh 'npm run build'
+						sh """
+							cd frontend
+							sh 'ls -a
+							npm install
+							npm run build
+						"""
 					},
 					BackendBuild:{
-						sh 'cd ./backend'
-						sh 'ls -a'
-						sh 'npm install'
-						sh 'npm run build .'
+						sh""" 
+							cd backend
+							ls -a
+							npm install
+							npm run build
+						"""
 					}
 				)
 			}
@@ -37,16 +40,18 @@ pipeline{
 			steps{
 				parallel(
 					FrontendTest:{
-						sh 'pwd && ls'
-						sh 'cd frontend'
-						sh 'npm build'
-						sh 'npm run test'
+						sh """
+							cd frontend
+							npm build
+							npm run test
+						"""
 					},
 					BackendTest:{
-						sh 'pwd && ls'
-						sh 'cd backend'
-						sh 'npm build'
-						sh 'npm run test'
+						sh """
+							cd backend
+							npm build
+							npm run test
+						"""
 					}
 				)
 			}
