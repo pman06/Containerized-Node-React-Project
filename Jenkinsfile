@@ -62,7 +62,7 @@ pipeline{
 				}
 				steps{
 					parallel(
-						Scan-Frontend:{
+						ScanFrontend:{
 							sh """
 								cd frontend
 								npm install
@@ -71,7 +71,7 @@ pipeline{
 								npm audit --audit-level=critical
 							"""
 						},
-						Scan-Backend:{
+						ScanBackend:{
 							sh """
 								cd backend
 								npm install
