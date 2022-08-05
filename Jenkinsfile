@@ -59,27 +59,27 @@ pipeline{
 						image 'node:13.8.0-stretch-slim'
 					}
 				}
-				stage{
+				steps{
 					parallel(
-					Scan-Frontend:{
-						sh """
-							cd frontend
-							npm install
-							npm audit fix
-							npm audit fix --audit-level=critical --force
-							npm audit --audit-level=critical
-						"""
-					},
-					Scan-Backend:{
-						sh """
-							cd backend
-							npm install
-							npm audit fix
-							npm audit fix --audit-level=critical --force
-							npm audit --audit-level=critical 
-						"""
-					}
-				)
+						Scan-Frontend:{
+							sh """
+								cd frontend
+								npm install
+								npm audit fix
+								npm audit fix --audit-level=critical --force
+								npm audit --audit-level=critical
+							"""
+						},
+						Scan-Backend:{
+							sh """
+								cd backend
+								npm install
+								npm audit fix
+								npm audit fix --audit-level=critical --force
+								npm audit --audit-level=critical 
+							"""
+						}
+					)
 				}
 			}
 	}
