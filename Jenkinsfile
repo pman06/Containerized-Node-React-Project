@@ -54,7 +54,7 @@ pipeline{
 				)
 			}
 		}
-		stage(Vuln-Scan){
+		stage('Vuln-Scan'){
 				agent{
 					docker{
 						image 'node:13.8.0-stretch-slim'
