@@ -12,14 +12,14 @@ pipeline{
 			}
 			steps{
 				parallel(
-					Build-Front:{
+					BuildFront: {
 						sh """
 							cd frontend
 							npm install
 							npm run build 
 						"""
 					},
-					Build-Backend:{
+					BuildBackend: {
 						sh """
 							cd backend
 							npm install
@@ -37,14 +37,14 @@ pipeline{
 			}
 			steps{
 				parallel(
-					Test-Frontend:{
+					TestFrontend: {
 						sh """
 							cd frontend
 							npm build
 							npm run test
 						"""
 					},
-					Test-Backend:{
+					TestBackend: {
 						sh """
 							cd backend
 							npm build

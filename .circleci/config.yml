@@ -73,9 +73,6 @@ jobs:
     executor: docker-node
     steps:
       - checkout
-      - run:
-          name: Install tar gzip
-          command: sudo apt install -y tar gzip
       - restore_cache:
           keys: [frontend-build]
       - run:
@@ -95,9 +92,6 @@ jobs:
     executor: docker-node
     steps:
       - checkout
-      - run:
-          name: Install tar gzip
-          command: sudo apt install -y tar gzip
       - restore_cache:
           keys: [backend-build]
       - run:
