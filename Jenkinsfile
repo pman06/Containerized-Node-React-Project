@@ -10,23 +10,24 @@ pipeline{
 					image 'node:13.8.0-stretch-slim'
 				}
 			}
-			parallel(
-				Build-Front:{
-					sh """
-						cd frontend
-						npm install
-						npm run build 
-					"""
-				},
-				Build-Backend:{
-					sh """
-						cd backend
-						npm install
-						npm run build
-					"""
-				}
-			)
-			
+			steps{
+				parallel(
+					Build-Front:{
+						sh """
+							cd frontend
+							npm install
+							npm run build 
+						"""
+					},
+					Build-Backend:{
+						sh """
+							cd backend
+							npm install
+							npm run build
+						"""
+					}
+				)
+			}	
 		}
 		stage('Test'){
 			agent{
