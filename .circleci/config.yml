@@ -75,7 +75,7 @@ jobs:
       - checkout
       - run:
           name: Install tar gzip
-          command: apt install -y tar gzip
+          command: sudo apt install -y tar gzip
       - restore_cache:
           keys: [frontend-build]
       - run:
@@ -97,7 +97,7 @@ jobs:
       - checkout
       - run:
           name: Install tar gzip
-          command: apt install -y tar gzip
+          command: sudo apt install -y tar gzip
       - restore_cache:
           keys: [backend-build]
       - run:
